@@ -22,19 +22,20 @@ const Home = () => {
 
   return (
     <>
-      <div className='container'>
-        <h1>¡Elige tu serie!</h1>
-        <form className='form-inline my-2 w-100'>
-          <input
-            type='text'
-            className='form-control'
-            placeholder='Buscar serie'
-            value={search}
-            onChange={handleSearch}
-          />
-        </form>
-        <div className='row bg-info'>
-          {
+      <body className='bg-light'>
+        <div className='container'>
+          <h1>¡Elige tu serie!</h1>
+          <form className='form-inline my-2 w-100'>
+            <input
+              type='text'
+              className='form-control'
+              placeholder='Buscar serie'
+              value={search}
+              onChange={handleSearch}
+            />
+          </form>
+          <div className='row bg-info'>
+            {
             filteredSeries.map(serie => (
               <div className='col-sm-3' key={serie.name}>
                 <div className='card'>
@@ -52,8 +53,9 @@ const Home = () => {
             )
             )
           }
+          </div>
         </div>
-      </div>
+      </body>
     </>
 
   )

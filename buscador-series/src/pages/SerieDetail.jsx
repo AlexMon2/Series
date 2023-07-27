@@ -19,7 +19,7 @@ const SerieDetail = () => {
     return <p>Cargando...</p>
   }
 
-  // Quitar etiquetas
+  // Quitar etiquetas visibles de la página
   const getPlainText = (html) => {
     const doc = new DOMParser().parseFromString(html, 'text/html')
     return doc.body.textContent || ''
@@ -69,7 +69,7 @@ const SerieDetail = () => {
                   </tr>
                 </tbody>
               </table>
-              <Link className='nav-link fw-bold fs-3 text-info border border-info rounded' to='/more'>More</Link>
+              <Link className='nav-link fw-bold fs-3 text-info border border-info rounded' to={`/serie/${serie.url.split('/')[4]}/more`}>More</Link>
             </div>
           </div>
         </div>
