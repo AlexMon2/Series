@@ -33,7 +33,7 @@ const Home = () => {
             onChange={handleSearch}
           />
         </form>
-        <div className='row'>
+        <div className='row bg-info'>
           {
             filteredSeries.map(serie => (
               <div className='col-sm-3' key={serie.name}>

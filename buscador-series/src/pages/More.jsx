@@ -5,25 +5,36 @@ import { useParams } from 'react-router-dom'
 
 const More = () => {
   const { id } = useParams()
-  const [serie, setSerie] = useState([])
-  const [loading, setLoading] = useState(true)
+  const [season, setSeason] = useState('')
+  const [episode, setEpisode] = useState('')
+  const [cast, setCast] = useState('')
 
   useEffect(() => {
-    fetch(' https://api.tvmaze.com/shows')
+    fetch(`https://api.tvmaze.com/shows/${id}/seasons`)
       .then(res => res.json())
-      .then(data => { setSerie(data); setLoading(false) })
+      .then(data => setSeason(data))
       .catch(error => console.error(error))
   }, [id])
 
-  if (loading) {
-    return <p>Cargando...</p>
-  }
+  useEffect(() => {
+    fetch(`https://api.tvmaze.com/seasons/${id}/episodes`)
+      .then(res => res.json())
+      .then(data => setEpisode(data.name))
+      .catch(err => console.error(err))
+  }, [id])
+
+  useEffect(() => {
+    fetch(`https://api.tvmaze.com/shows/${id}/cast`)
+      .then(res => res.json())
+      .then(data => setCast(data))
+      .catch(err => console.error(err))
+  }, [id])
 
   return (
     <div className='container mt-3'>
       <div className='card'>
         <div className='card-header'>
-          <h3>{serie.name}</h3>
+          <h3>Seasons and Cast</h3>
         </div>
         <div className='card-body'>
           <div className='row'>
@@ -37,8 +48,21 @@ const More = () => {
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Status</td>
-                    <td>{serie.st}</td>
+                    <td>Debe salir un número{season.number}</td>
+                    <td>Deben salir los episodios{episode}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <table className='table'>
+                <thead>
+                  <tr>
+                    <th className='col-sm-2'>Cast</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Debe salir el nombre de los actores{cast.name}</td>
+                    <td>Deben salir las fotos</td>
                   </tr>
                 </tbody>
               </table>

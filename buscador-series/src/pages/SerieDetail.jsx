@@ -26,7 +26,7 @@ const SerieDetail = () => {
   }
 
   return (
-    <div className='container mt-3'>
+    <div className='container mt-3 bg-info'>
       <div className='card'>
         <div className='card-header'>
           <h3>{serie.name}</h3>
