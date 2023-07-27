@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
   const [series, setSeries] = useState([]) // Lista de series
@@ -22,7 +23,7 @@ const Home = () => {
   return (
     <>
       <div className='container'>
-        <h1>Home</h1>
+        <h1>¡Elige tu serie!</h1>
         <form className='form-inline my-2 w-100'>
           <input
             type='text'
@@ -39,7 +40,12 @@ const Home = () => {
                 <div className='card'>
                   <div className='card-body'>
                     <img src={serie.image.medium} alt={serie.name} />
-                    <h5 className='card-title'>{serie.name}</h5>
+                    <Link
+                      className='card-title'
+                      to={`/serie/${serie.url.split('/')[4]}`}
+                    >
+                      {serie.name}
+                    </Link>
                   </div>
                 </div>
               </div>

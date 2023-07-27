@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useParams, NavLink } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 
 // prueba
 
@@ -69,7 +69,7 @@ const SerieDetail = () => {
                   </tr>
                 </tbody>
               </table>
-              <NavLink className='nav-link' to='/more'>More</NavLink>
+              <Link className='nav-link fw-bold fs-3 text-info border border-info rounded' to='/more'>More</Link>
             </div>
           </div>
         </div>
