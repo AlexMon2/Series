@@ -19,7 +19,7 @@ const More = () => {
   useEffect(() => {
     fetch(`https://api.tvmaze.com/seasons/${id}/episodes`)
       .then(res => res.json())
-      .then(data => setEpisode(data.name))
+      .then(data => setEpisode(data))
       .catch(err => console.error(err))
   }, [id])
 
@@ -49,7 +49,7 @@ const More = () => {
                 <tbody>
                   <tr>
                     <td>Debe salir un número{season.number}</td>
-                    <td>Deben salir los episodios{episode}</td>
+                    <td>Deben salir los episodios{episode.name}</td>
                   </tr>
                 </tbody>
               </table>
@@ -63,6 +63,7 @@ const More = () => {
                   <tr>
                     <td>Debe salir el nombre de los actores{cast.name}</td>
                     <td>Deben salir las fotos</td>
+                    <img src={cast.image.medium} alt={cast.name}
                   </tr>
                 </tbody>
               </table>

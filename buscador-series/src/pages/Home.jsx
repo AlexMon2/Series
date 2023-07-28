@@ -22,7 +22,7 @@ const Home = () => {
 
   return (
     <>
-      <body className='bg-light'>
+      <div className='bg-light'>
         <div className='container'>
           <h1>¡Elige tu serie!</h1>
           <form className='form-inline my-2 w-100'>
@@ -37,7 +37,7 @@ const Home = () => {
           <div className='row bg-info'>
             {
             filteredSeries.map(serie => (
-              <div className='col-sm-3' key={serie.name}>
+              <div className='col-sm-3' key={serie.id}>
                 <div className='card'>
                   <div className='card-body'>
                     <img src={serie.image.medium} alt={serie.name} />
@@ -55,7 +55,7 @@ const Home = () => {
           }
           </div>
         </div>
-      </body>
+      </div>
     </>
 
   )
