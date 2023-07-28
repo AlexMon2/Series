@@ -63,7 +63,7 @@ const More = () => {
                   <tr>
                     <td>Debe salir el nombre de los actores{cast.name}</td>
                     <td>Deben salir las fotos</td>
-                    <img src={cast.image.medium} alt={cast.name}
+                    <img src={cast.image.medium} alt={cast.name} />
                   </tr>
                 </tbody>
               </table>
