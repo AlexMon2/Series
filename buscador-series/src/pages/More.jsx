@@ -33,6 +33,10 @@ const More = () => {
   return (
     <div className='container mt-3'>
       <div className='card'>
+        <div>
+          {
+            season.map(season => (
+
         <div className='card-header'>
           <h3>Seasons and Cast</h3>
         </div>
@@ -69,6 +73,10 @@ const More = () => {
               </table>
             </div>
           </div>
+        </div>
+            )
+            )
+          }
         </div>
       </div>
     </div>
