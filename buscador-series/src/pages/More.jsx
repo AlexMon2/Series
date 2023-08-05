@@ -30,13 +30,34 @@ const More = () => {
       .catch(err => console.error(err))
   }, [id])
 
+  const filteredSeason = season.filter(season => {
+    return season.number()
+  })
+
   return (
     <div className='container mt-3'>
       <div className='card'>
         <div>
           {
-            season.map(season => (
-
+            filteredSeason.map(season => (
+              <table className='table' key={season.number}>
+                <thead>
+                  <tr>
+                    <th>Seasons</th>
+                    <th>Episodes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Debe salir un número{season.number}</td>
+                    <td>Deben salir los episodios{episode.name}</td>
+                  </tr>
+                </tbody>
+              </table>
+            )
+            )
+          }
+        </div>
         <div className='card-header'>
           <h3>Seasons and Cast</h3>
         </div>
@@ -73,12 +94,6 @@ const More = () => {
               </table>
             </div>
           </div>
-        </div>
-            )
-
-            )
-            
-          }
         </div>
       </div>
     </div>
